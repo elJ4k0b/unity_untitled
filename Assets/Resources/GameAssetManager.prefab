@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3872123269903947254
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8607402701470316022}
+  - component: {fileID: 8850016718715986009}
+  m_Layer: 0
+  m_Name: GameAssetManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8607402701470316022
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3872123269903947254}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8850016718715986009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3872123269903947254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ac4c166b31f4784480789eec95c6734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  featherParticles: {fileID: 7994732081564316919, guid: d4ae0235cc727aa49a2c33bbb6cbdcfd,
+    type: 3}
+  grenadeExplosionParticles: {fileID: 9049580463654503237, guid: 0c092866ec69f5f4095e4774f3f4e7ad,
+    type: 3}
+  walkingParticles: {fileID: 2505192347699299861, guid: 4a4a20a7cc2fd6e4c9c03c01ba62bcd2,
+    type: 3}
+  trailParticles: {fileID: 2405041515405873769, guid: 4c3c87bbe57fd674598205d126642f3f,
+    type: 3}
+  dustParticles: {fileID: 243438545874709354, guid: cd5fdebdf6104b64683a8a476e0aa4eb,
+    type: 3}
+  background: {fileID: 6237608240112029219, guid: 50301cd50ed3d2f458afeb2934d5ada7,
+    type: 3}
+  chicken: {fileID: 6399831247033431047, guid: 7b59bb3b1bd2d4d4386a79a5cc5c5910, type: 3}
+  eiergeschoss: {fileID: 6668365467117295234, guid: 96a2a4ced712fa742bad7788a526248e,
+    type: 3}
+  granatengeschoss: {fileID: 1873397660788201347, guid: b2dc03fc262726348a77a353d112831a,
+    type: 3}
+  environment:
+  - {fileID: 7616265145431438877, guid: 7290fe9bd1bb63a48b852148d2303451, type: 3}
+  - {fileID: 5026955338615197571, guid: 9bfa458015ea1c149bac846898a8189a, type: 3}
+  - {fileID: 1761122070044681378, guid: 959486dad7e4beb42b954535c46cccc2, type: 3}
+  - {fileID: 8556956469146958496, guid: 4b21c690f6696e94587d07e89f578f98, type: 3}
+  - {fileID: 5413473530638631406, guid: 0cf885dbb628b6549aae0d00a5e11694, type: 3}
+  - {fileID: 2853861577827472490, guid: ba22c5abe20ba8049a981c3e316614a9, type: 3}
+  - {fileID: 3185455432317580426, guid: b111abf81323bb04e9f3ee2a65031303, type: 3}
+  - {fileID: 2180200614451784455, guid: 039b154f25246b548be595d3d71e3184, type: 3}
+  craters:
+  - {fileID: 3891155418520467630, guid: b91bc5f0918cf3242bf89a93a3400df4, type: 3}
+  - {fileID: 6061516567464099511, guid: a5f3ec99ed7125c4daef4e3d7a27cc4a, type: 3}
+  - {fileID: 7550520347590029268, guid: be8d9217987a2244fb2cbd236ca9c80d, type: 3}
+  - {fileID: 7647288196375261262, guid: 3b9db87bdef413943aab5f62dcf5b112, type: 3}
+  - {fileID: 5117056886276336536, guid: 9bae94934ca44bb46819e9a4120cbcda, type: 3}
+  - {fileID: 5119992931516374865, guid: 984ee6c2869f29b468ceb740ed83d88f, type: 3}

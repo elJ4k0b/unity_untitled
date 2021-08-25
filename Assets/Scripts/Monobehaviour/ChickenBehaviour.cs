@@ -16,6 +16,7 @@ public class ChickenBehaviour : EntityBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(FindWeapon());
         chicken = new Chicken(this.gameObject.transform.position, new Vector2(0, -1), FindWeapon());
         shootTimer = new Timer(chicken.timeBetweenShots);
         this.AudioManager = GameObject.FindGameObjectWithTag("Audio");
@@ -45,7 +46,6 @@ public class ChickenBehaviour : EntityBehaviour
         {
             shootTimer.Tick(Time.deltaTime);
         }
-
         if(chicken.alive != true)
         {
             Die();
@@ -62,5 +62,13 @@ public class ChickenBehaviour : EntityBehaviour
         AudioManager.GetComponent<AudioManagerBehaviour>().PlaySound("puff");
         GameObject particles = Instantiate(deathParticles, this.transform.position, Quaternion.Euler(-90, 0, 0));
         Destroy(this.gameObject);
+    }
+    private void FixedUpdate()
+    {
+        if (chicken.position != rb.position)
+        {
+            Vector2 direction = chicken.position - rb.position;
+            rb.MovePosition(rb.position + direction* 10 * Time.fixedDeltaTime);
+        }
     }
 }

@@ -19,7 +19,7 @@ public abstract class EntityBehaviour : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Entity " + this.gameObject.name + " hat kein Waffenobject gefunden");
+            Debug.Log("Entity " + this.gameObject.name + " hat kein Waffenobject gefunden");
             return null;
         }
     }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chicken : Entity
+public class Chicken : Entity, knockbackable
 {
     public Chicken (Vector2 position, Vector2 direction, Weapon weapon)
     {
@@ -14,8 +14,14 @@ public class Chicken : Entity
         this.direction = direction;
         this.weapon = weapon;
     }
+
+    public void ApplyKnockback(Vector2 knockback)
+    {
+        this.position += knockback;
+    }
+
     public override Vector2 Move(Vector2 direction, float speed, float deltaTime)
-        {
-            throw new System.NotImplementedException();
-        }
+    {
+         throw new System.NotImplementedException();
+    }
 }

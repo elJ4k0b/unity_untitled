@@ -42,29 +42,14 @@ public class PlayerBehaviour : EntityBehaviour
     {
         player = entity as Player;
     }
-    private void Shoot()
-    {
-        if(shooting == true)
-        {
-            player.Shoot();
-        }
-    }
 
     // Update is called once per frame
     void Update()
     {
-        //On Spacebar down
-        if(Input.GetKeyDown("space"))
+        if (Input.GetKey("space"))
         {
-            shooting = true;
-            
-            //audioManagerBehaviour.PlaySound("plop");
-        }
-        if(Input.GetKeyUp("space"))
-        {
-            shooting = false;
-        }
-        Shoot();
+            player.Shoot();
+        }        
 
         //Get Input Axis
         direction.x = Input.GetAxisRaw("Horizontal");

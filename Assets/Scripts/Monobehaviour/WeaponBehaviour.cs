@@ -10,14 +10,9 @@ public class WeaponBehaviour : MonoBehaviour
     public GameObject bulletObj;
     private bool shooting = false;
 
-    private void Start()
+    private void Awake()
     {
-        if(weapon == null)
-        {
-            Debug.Log(weaponScriptable.shotPower + " " +weaponScriptable.fireRate + " " + weaponScriptable.bloom + " " + weaponScriptable.reloadTime + " " + weaponScriptable.magazineSize + " " + weaponScriptable.burstSize);
-            //weapon = new Weapon(10, 5, 20, 0.2f, 10, 2);
-            weapon = new Weapon(weaponScriptable);
-        }
+        weapon = new Weapon(weaponScriptable);
     }
     void Update()
     {
@@ -29,16 +24,14 @@ public class WeaponBehaviour : MonoBehaviour
             case "cooldown":
                 weapon.CoolDown(Time.deltaTime);
                 break;
-            case "ready":
-                if (weapon.bulletsToShoot.Count > 0)
-                {
-                    if (shooting == false)
-                    {
-                        StartCoroutine("Shoot");
-                    }
-                    weapon.bulletsToShoot.RemoveAt(weapon.bulletsToShoot.Count - 1);
-                }
-                break;
+        }
+        if (weapon.bulletsToShoot.Count > 0)
+        {
+            if (shooting == false)
+            {
+                StartCoroutine("Shoot");
+            }
+            weapon.bulletsToShoot.RemoveAt(weapon.bulletsToShoot.Count - 1);
         }
     }
 

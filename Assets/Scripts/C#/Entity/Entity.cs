@@ -8,7 +8,7 @@ public abstract class Entity
     protected float health;
     protected float speed;
     public float timeBetweenShots {get; protected set;}
-    protected Vector2 position;
+    public Vector2 position;
     protected Vector2 direction;
     public Weapon weapon;
 
@@ -50,7 +50,10 @@ public abstract class Entity
         {
             this.speed = 1;
         }
-        weapon.Shoot(direction);
+        if(weapon != null)
+        {
+            weapon.Shoot(direction);
+        }
     }
 
     // Destroy Function

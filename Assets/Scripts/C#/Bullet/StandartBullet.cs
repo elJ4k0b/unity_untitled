@@ -6,10 +6,15 @@ public class StandartBullet : Bullet
 {
     public StandartBullet()
     {
+        this.knockbackPower = 1;
         this.damage = 20;
         this.lifetime = 0.5f;
     }
 
+    public override void Knockback(Vector2 direction, knockbackable target)
+    {
+        target.ApplyKnockback(direction.normalized * knockbackPower);
+    }
     public override void DealDamage(Entity target)
     {
         target.TakeDamage(this.damage);

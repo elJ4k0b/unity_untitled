@@ -25,7 +25,7 @@ public class GameManagerBehaviour : MonoBehaviour
         }
         if(enemySpawner.Spawn(Time.deltaTime))
         {
-            //SpawnEnemy();
+            SpawnEnemy();
         }
         if(enemySpawner.Spawn(Time.deltaTime))
         {

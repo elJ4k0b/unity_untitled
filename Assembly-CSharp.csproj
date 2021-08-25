@@ -77,6 +77,7 @@
     <Compile Include="Assets\Scripts\C#\Spawner.cs" />
     <Compile Include="Assets\Scripts\C#\Utility\Timer.cs" />
     <Compile Include="Assets\Scripts\C#\Weapon\Weapon.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\hitable.cs" />
     <Compile Include="Assets\Scripts\Monobehaviour\AudioManagerBehaviour.cs" />
     <Compile Include="Assets\Scripts\Monobehaviour\BulletBehaviour.cs" />
     <Compile Include="Assets\Scripts\Monobehaviour\CameraBorderBehaviour.cs" />

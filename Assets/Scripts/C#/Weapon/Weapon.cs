@@ -47,7 +47,6 @@ public class Weapon
     }
     public virtual void Shoot(Vector2 shotDir)
     {
-        Debug.Log(state);
         if(state == "ready")
         {
             for (int i = 0; i < burstSize; i++)
@@ -58,11 +57,9 @@ public class Weapon
                     bullet = new GrenadeBullet();
                     bulletsToShoot.Add(bullet);
                     this.direction = shotDir;
-                    Debug.Log("Added Bullet");
                 }
                 else
                 {
-                    Debug.Log("reloading");
                     reloadTimer.StartTimer(reloadTime);
                     state = "reloading";
                     break;
@@ -70,7 +67,6 @@ public class Weapon
             }
             if(state != "reloading")
             {
-                Debug.Log("cooldown");
                 shotTimer.StartTimer(1 / fireRate);
                 state = "cooldown";
             }

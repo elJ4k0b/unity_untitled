@@ -13,6 +13,7 @@ public class GrenadeBullet : Bullet
 
     public GrenadeBullet()
     {
+        this.knockbackPower = 5;
         this.explosionRadius = 3;
         this.flytime = 1f;
         this.explosiontime = 0.6f;
@@ -72,5 +73,10 @@ public class GrenadeBullet : Bullet
     public override void DealDamage(Entity target)
     {
         throw new System.NotImplementedException();
+    }
+
+    public override void Knockback(Vector2 direction, knockbackable target)
+    {
+        target.ApplyKnockback(direction * knockbackPower);
     }
 }

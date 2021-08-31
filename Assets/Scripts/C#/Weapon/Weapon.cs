@@ -11,7 +11,8 @@ public class Weapon
     private int remainingAmmo;
     private int magazineSize;
     public int burstSize { get; private set; }
-    public string state;
+    public string oldState;
+    public States state = States.ready;
     private bool readyToShoot = true;
     private Bullet bullet = new GrenadeBullet();
     private Timer shotTimer = new Timer(0);
@@ -19,9 +20,18 @@ public class Weapon
     public List<Bullet> bulletsToShoot = new List<Bullet>();
     public Vector2 direction;
 
+    public enum States
+    {
+        ready,
+        shooting,
+        reloading,
+        cooldown
+    }
+
     public Weapon(float shotPower, float fireRate, float bloom, float reloadTime, int magazineSize, int burstSize)
     {
-        this.state = "ready";
+        this.state = States.ready;
+        this.oldState = "ready";
         this.reloadTime = reloadTime;
         this.magazineSize = magazineSize;
         this.shotPower = shotPower;
@@ -34,7 +44,8 @@ public class Weapon
     }
     public Weapon(weaponScriptableObject weapon)
     {
-        this.state = "ready";
+        this.state = States.ready;
+        this.oldState = "ready";
         this.reloadTime = weapon.reloadTime;
         this.magazineSize = weapon.magazineSize;
         this.shotPower = weapon.shotPower;
@@ -45,9 +56,26 @@ public class Weapon
         shotTimer.StartTimer(1 / fireRate);
         shotTimer.StartTimer(reloadTime);
     }
+
+    public void Update(float deltaTime)
+    {
+        switch(state)
+        {
+            case States.ready:
+                break;
+            case States.shooting:
+                break;
+            case States.reloading:
+                Reload(deltaTime);
+                break;
+            case States.cooldown:
+                CoolDown(deltaTime);
+                break;
+        }
+    }
     public virtual void Shoot(Vector2 shotDir)
     {
-        if(state == "ready")
+        if(oldState == "ready")
         {
             for (int i = 0; i < burstSize; i++)
             {
@@ -61,14 +89,14 @@ public class Weapon
                 else
                 {
                     reloadTimer.StartTimer(reloadTime);
-                    state = "reloading";
+                    oldState = "reloading";
                     break;
                 }
             }
-            if(state != "reloading")
+            if(oldState != "reloading")
             {
                 shotTimer.StartTimer(1 / fireRate);
-                state = "cooldown";
+                oldState = "cooldown";
             }
         }
     }
@@ -77,7 +105,7 @@ public class Weapon
         reloadTimer.Tick(deltaTime);
         if(reloadTimer.TimerUp())
         {
-            state = "ready";
+            oldState = "ready";
             reloadTimer.StartTimer(reloadTime);
             this.remainingAmmo = magazineSize;
         }
@@ -87,7 +115,7 @@ public class Weapon
         shotTimer.Tick(deltaTime);
         if (shotTimer.TimerUp())
         {
-            state = "ready";
+            oldState = "ready";
         }
     }
     public Vector2 CalculateBloom()

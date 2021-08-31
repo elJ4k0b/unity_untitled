@@ -15,6 +15,7 @@ public class Player: Entity
         this.weapon = weapon;
     }
 
+
     public void OldShoot()
     {
         if(weapon != null)
@@ -24,7 +25,7 @@ public class Player: Entity
         //GrenadeBullet bullet = new GrenadeBullet(shotPos, new Vector2(0, 1), this.speed);
         //StandartBullet bullet = new StandartBullet(shotPos, new Vector2(0,1), this.speed);
     }
-    override
+
     public Vector2 Move(Vector2 direction, float speed, float deltaTime)
     {
 
@@ -40,5 +41,15 @@ public class Player: Entity
         }
         this.position = newPosition;
         return newPosition;
+    }
+
+    public override void Update(float deltaTime)
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void Move(float deltaTime)
+    {
+        throw new NotImplementedException();
     }
 }

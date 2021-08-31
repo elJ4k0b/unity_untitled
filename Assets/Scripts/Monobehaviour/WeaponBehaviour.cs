@@ -16,7 +16,7 @@ public class WeaponBehaviour : MonoBehaviour
     }
     void Update()
     {
-        switch (weapon.state)
+        switch (weapon.oldState)
         {
             case "reloading":
                 weapon.Reload(Time.deltaTime);

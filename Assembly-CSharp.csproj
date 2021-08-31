@@ -75,6 +75,9 @@
     <Compile Include="Assets\Scripts\C#\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\C#\Entity\Player.cs" />
     <Compile Include="Assets\Scripts\C#\Spawner.cs" />
+    <Compile Include="Assets\Scripts\C#\State\EnemyState.cs" />
+    <Compile Include="Assets\Scripts\C#\State\KnockbackState.cs" />
+    <Compile Include="Assets\Scripts\C#\State\State.cs" />
     <Compile Include="Assets\Scripts\C#\Utility\Timer.cs" />
     <Compile Include="Assets\Scripts\C#\Weapon\Weapon.cs" />
     <Compile Include="Assets\Scripts\Interfaces\hitable.cs" />

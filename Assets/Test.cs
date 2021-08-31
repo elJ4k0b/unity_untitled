@@ -2,18 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Test : MonoBehaviour
+public enum States
 {
-    // Start is called before the first frame update
-    SpriteRenderer spr;
-    void Start()
-    {
-        Debug.Log(this.transform.lossyScale);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    idle,
+    walking,
+    attacking,
+    knockback,
+    dead,
 }

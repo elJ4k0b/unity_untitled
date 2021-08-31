@@ -35,20 +35,24 @@ public class StandartBulletBehaviour : BulletBehaviour
             Destroy(this.gameObject);
         }
     }
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         EntityBehaviour target = collision.gameObject.GetComponent<EntityBehaviour>();
         if (target != null)
         {
-            standartBullet.DealDamage(target.GetEntity());
-            if(target.GetEntity() is knockbackable)
+            if (target.GetEntity() is knockbackable)
             {
-                standartBullet.Knockback(rb.velocity,target.GetEntity() as knockbackable);
+                Vector2 contactPoint = collision.contacts[((collision.contacts.Length - 1) / 2)].point;
+                Vector2 targetPosition = collision.gameObject.transform.position;
+                Vector2 direction = targetPosition - contactPoint;
+                standartBullet.Knockback(direction, target.GetEntity() as knockbackable);
             }
+            standartBullet.DealDamage(target.GetEntity());
         }
-        if(collision.gameObject.CompareTag("projectile"))
-        {
-            Destroy(this.gameObject);
-        }
+        Destroy(this.gameObject);
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        
     }
 }

@@ -37,38 +37,31 @@ public class ChickenBehaviour : EntityBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(shootTimer.TimerUp())
-        {
-            chicken.Shoot();
-            shootTimer.StartTimer(chicken.timeBetweenShots);
-        }
-        else
-        {
-            shootTimer.Tick(Time.deltaTime);
-        }
+        chicken.Update(Time.deltaTime);
         if(chicken.alive != true)
         {
             Die();
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         anim.Play("chicken_damage");
-        Instantiate(GameAssets.instance.dustParticles, this.transform);
+        AnimatorClipInfo[] clipinfo =  anim.GetCurrentAnimatorClipInfo(0);
+        clipinfo[0].clip
     }
     private void Die()
     {
         AudioManager.GetComponent<AudioManagerBehaviour>().PlaySound("chicken_damage");
         AudioManager.GetComponent<AudioManagerBehaviour>().PlaySound("puff");
-        GameObject particles = Instantiate(deathParticles, this.transform.position, Quaternion.Euler(-90, 0, 0));
+        GameObject particles = Instantiate(GameAssets.instance.dustParticles, this.transform.position, Quaternion.identity);
         Destroy(this.gameObject);
+        //GameObject particles2 = Instantiate(GameAssets.instance.featherParticles, this.transform.position, Quaternion.Euler(-90, 0, 0));
     }
     private void FixedUpdate()
     {
-        if (chicken.position != rb.position)
+        if(rb.position != chicken.position)
         {
-            Vector2 direction = chicken.position - rb.position;
-            rb.MovePosition(rb.position + direction* 10 * Time.fixedDeltaTime);
+            rb.MovePosition(chicken.position);
         }
     }
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4543227287007248041}
   - component: {fileID: 6097064945541979937}
   - component: {fileID: 9145676387843993341}
+  - component: {fileID: 8034690150935541705}
   m_Layer: 0
   m_Name: Eiergeschoss
   m_TagString: Untagged
@@ -145,3 +146,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4235957, y: 0.31066805}
   m_EdgeRadius: 0
+--- !u!58 &8034690150935541705
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6668365467117295234}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.029483974, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.22001582

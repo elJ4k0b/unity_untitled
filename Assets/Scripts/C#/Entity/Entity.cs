@@ -11,6 +11,8 @@ public abstract class Entity
     public Vector2 position;
     protected Vector2 direction;
     public Weapon weapon;
+    public States state = States.attacking;
+
 
     //Getter
     public float GetSpeed()
@@ -22,8 +24,11 @@ public abstract class Entity
         return this.direction;
     }
 
+    //Update Function
+    public abstract void Update(float deltaTime);
+
     //Abstract Movement
-    public abstract Vector2 Move(Vector2 direction, float speed, float deltaTime);
+    public abstract void Move(float deltaTime);
 
     //Take Damage Function
     public void TakeDamage(float damage)
@@ -37,7 +42,8 @@ public abstract class Entity
             health -= damage;
             if (health <= 0)
             {
-                Kill();
+                health = 0;
+                state = States.dead;
             }
         }
         health -= damage;
@@ -60,7 +66,6 @@ public abstract class Entity
     protected void Kill()
     {
         alive = false;
-        health = 0;
 
     }
 
